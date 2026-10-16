@@ -1,0 +1,85 @@
+<div class="fl-figure">
+<div class="fl-figbox">
+<svg viewBox="0 0 860 650" role="img" aria-label="What passes between the files of recovery/ and ownership/ in a round, inside the process of a task.">
+<rect x="20" y="10" width="820" height="32" rx="6" class="b-fcpp"/>
+<text x="430" y="31" text-anchor="middle" class="t-step-note">the application's spawn(job): run_lease(job, lease_config) in the process of each job, on every device</text>
+<rect x="174" y="212" width="402" height="364" rx="6" class="b-group"/>
+<text x="186" y="230" text-anchor="start" class="t-col">nbr</text>
+<line x1="375" y1="42" x2="375" y2="70" class="a-flow"/>
+<polygon points="375.0,70.0 371.4,61.6 378.6,61.6" class="a-flow-h"/>
+<rect x="190" y="72" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="95" text-anchor="start" class="t-step">application</text>
+<text x="546" y="95" text-anchor="end" class="t-step-note">job.rank(CALL)</text>
+<line x1="375" y1="108" x2="375" y2="142" class="a-flow"/>
+<polygon points="375.0,142.0 371.4,133.6 378.6,133.6" class="a-flow-h"/>
+<text x="385" y="129" text-anchor="start" class="t-flow">rank</text>
+<rect x="612" y="74" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="95" text-anchor="start" class="t-step-note">on every device of the process</text>
+<line x1="610" y1="90" x2="562" y2="90" class="a-flow"/>
+<polygon points="562.0,90.0 570.4,86.4 570.4,93.6" class="a-flow-h"/>
+<rect x="190" y="144" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="167" text-anchor="start" class="t-step">run_lease.hpp</text>
+<text x="546" y="167" text-anchor="end" class="t-step-note">claim{want, rank}</text>
+<line x1="375" y1="180" x2="375" y2="240" class="a-flow"/>
+<polygon points="375.0,240.0 371.4,231.6 378.6,231.6" class="a-flow-h"/>
+<text x="385" y="214" text-anchor="start" class="t-flow">claim</text>
+<rect x="612" y="146" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="167" text-anchor="start" class="t-step-note">lease_memory: free? paused?</text>
+<line x1="610" y1="162" x2="562" y2="162" class="a-flow"/>
+<polygon points="562.0,162.0 570.4,158.4 570.4,165.6" class="a-flow-h"/>
+<rect x="190" y="242" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="265" text-anchor="start" class="t-step">run_lease.hpp</text>
+<text x="546" y="265" text-anchor="end" class="t-step-note">freshest checkpoint</text>
+<line x1="375" y1="278" x2="375" y2="312" class="a-flow"/>
+<polygon points="375.0,312.0 371.4,303.6 378.6,303.6" class="a-flow-h"/>
+<text x="385" y="299" text-anchor="start" class="t-flow">checkpoint</text>
+<rect x="612" y="244" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="265" text-anchor="start" class="t-step-note">records: neighbours' checkpoints</text>
+<line x1="610" y1="260" x2="562" y2="260" class="a-flow"/>
+<polygon points="562.0,260.0 570.4,256.4 570.4,263.6" class="a-flow-h"/>
+<rect x="190" y="314" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="337" text-anchor="start" class="t-step">run_lease.hpp</text>
+<text x="546" y="337" text-anchor="end" class="t-step-note">stalled? → preempt</text>
+<line x1="375" y1="350" x2="375" y2="384" class="a-flow"/>
+<polygon points="375.0,384.0 371.4,375.6 378.6,375.6" class="a-flow-h"/>
+<text x="385" y="371" text-anchor="start" class="t-flow">claim with preempt</text>
+<rect x="612" y="316" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="337" text-anchor="start" class="t-step-note">lease_config.stall_timeout</text>
+<line x1="610" y1="332" x2="562" y2="332" class="a-flow"/>
+<polygon points="562.0,332.0 570.4,328.4 570.4,335.6" class="a-flow-h"/>
+<rect x="190" y="386" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="409" text-anchor="start" class="t-step">lease.hpp</text>
+<text x="546" y="409" text-anchor="end" class="t-step-note">lease_round</text>
+<line x1="375" y1="422" x2="375" y2="456" class="a-flow"/>
+<polygon points="375.0,456.0 371.4,447.6 378.6,447.6" class="a-flow-h"/>
+<text x="385" y="443" text-anchor="start" class="t-flow">tenure: active, epoch, previous</text>
+<rect x="612" y="388" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="409" text-anchor="start" class="t-step-note">records: neighbours' leases, aged</text>
+<line x1="610" y1="404" x2="562" y2="404" class="a-flow"/>
+<polygon points="562.0,404.0 570.4,400.4 570.4,407.6" class="a-flow-h"/>
+<rect x="190" y="458" width="370" height="36" rx="6" class="b-app"/>
+<text x="204" y="481" text-anchor="start" class="t-step">application</text>
+<text x="546" y="481" text-anchor="end" class="t-step-note">job.work(progress, step)</text>
+<line x1="375" y1="494" x2="375" y2="528" class="a-flow"/>
+<polygon points="375.0,528.0 371.4,519.6 378.6,519.6" class="a-flow-h"/>
+<text x="385" y="515" text-anchor="start" class="t-flow">new progress</text>
+<rect x="612" y="460" width="228" height="32" rx="6" class="b-base"/>
+<text x="624" y="481" text-anchor="start" class="t-step-note">only if the tenure is active</text>
+<line x1="610" y1="476" x2="562" y2="476" class="a-flow"/>
+<polygon points="562.0,476.0 570.4,472.4 570.4,479.6" class="a-flow-h"/>
+<rect x="190" y="530" width="370" height="36" rx="6" class="b-step"/>
+<text x="204" y="553" text-anchor="start" class="t-step">run_lease.hpp</text>
+<text x="546" y="553" text-anchor="end" class="t-step-note">checkpoint.advanced(progress)</text>
+<line x1="375" y1="566" x2="375" y2="600" class="a-flow"/>
+<polygon points="375.0,600.0 371.4,591.6 378.6,591.6" class="a-flow-h"/>
+<text x="385" y="587" text-anchor="start" class="t-flow">lease_state</text>
+<rect x="190" y="602" width="370" height="36" rx="6" class="b-app"/>
+<text x="204" y="625" text-anchor="start" class="t-step">run_lease.hpp</text>
+<text x="546" y="625" text-anchor="end" class="t-step-note">(lease_state, status) for spawn</text>
+<path d="M174,548 L150,548 L150,260" class="a-link" fill="none"/>
+<line x1="150" y1="260" x2="188" y2="260" class="a-link"/>
+<polygon points="188.0,260.0 179.6,263.6 179.6,256.4" class="a-link-h"/>
+<text x="142" y="408" text-anchor="end" class="t-link">record sent</text>
+</svg>
+</div>
+</div>

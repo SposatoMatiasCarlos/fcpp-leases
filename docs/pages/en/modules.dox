@@ -1,0 +1,26 @@
+/**
+ * @dir lib
+ * @brief Root of the library: the umbrella header leases.hpp and the folder leases/.
+ *
+ * @dir lib/leases
+ * @brief All the modules, in namespace fcpp::coordination::leases (see the page @ref architecture).
+ *
+ * @dir lib/leases/common
+ * @brief Basic types, wrap-around-safe counters and compact durations in messages.
+ *
+ * @dir lib/leases/model
+ * @brief Data only: the actual fault, the events, the checkpoint, the lease, the decisions of the resources, the tasks.
+ *
+ * @dir lib/leases/ownership
+ * @brief Who may act on a job: the rules of the echo-confirmed lease.
+ *
+ * @dir lib/leases/sim
+ * @brief Fault plan, for simulation and tests only.
+ */
+
+/**
+ * @namespace fcpp::coordination::leases
+ * @brief fcpp-leases: leases in the field for fault-tolerant task ownership.
+ *
+ * See @ref api_index for the list of symbols file by file.
+ */

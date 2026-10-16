@@ -1,0 +1,26 @@
+/**
+ * @dir lib
+ * @brief Radice della libreria: l'header ombrello leases.hpp e la cartella leases/.
+ *
+ * @dir lib/leases
+ * @brief Tutti i moduli, nel namespace fcpp::coordination::leases (vedi la pagina @ref architecture).
+ *
+ * @dir lib/leases/common
+ * @brief Tipi di base, contatori sicuri al wrap-around e durate compatte nei messaggi.
+ *
+ * @dir lib/leases/model
+ * @brief Solo dati: il guasto reale, gli eventi, il checkpoint, la lease, le decisioni delle risorse, i task.
+ *
+ * @dir lib/leases/ownership
+ * @brief Chi può agire su un job: le regole della lease confermata dalle eco.
+ *
+ * @dir lib/leases/sim
+ * @brief Piano dei guasti, solo per la simulazione e i test.
+ */
+
+/**
+ * @namespace fcpp::coordination::leases
+ * @brief fcpp-leases: lease nel campo per la proprietà dei task tollerante ai guasti.
+ *
+ * Vedi @ref api_index per l'elenco dei simboli file per file.
+ */

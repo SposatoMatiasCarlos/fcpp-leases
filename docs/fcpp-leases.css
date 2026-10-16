@@ -1,0 +1,312 @@
+/*
+ * fcpp-leases theme on top of doxygen-awesome-css.
+ * Light by default (white ground, green accent); the button in the title bar switches
+ * to dark by setting html.dark-mode (see header.html). Every colour is a variable,
+ * redefined for the dark theme, so pages and diagrams follow the switch.
+ */
+
+html {
+    --fl-ink: #16202a;
+    --fl-muted: #56626e;
+    --fl-panel: #ffffff;
+    --fl-rule: #dfe4e8;
+    --fl-rule-strong: #9aa6b2;
+    --fl-green: #1e7d45;
+    --fl-green-dark: #155c33;
+    --fl-green-soft: #e3f3e9;
+    --fl-flow: #2f5f80;
+    --fl-flow-soft: #e6eef4;
+    --fl-violet: #5e4a96;
+    --fl-violet-soft: #eeeaf7;
+    --fl-amber: #8a5a00;
+    --fl-amber-soft: #fbf0d9;
+    --fl-danger: #b42318;
+    --fl-danger-soft: #fbe1de;
+    --fl-code-bg: #f1f4f6;
+
+    --primary-color: var(--fl-green);
+    --primary-dark-color: var(--fl-green-dark);
+    --primary-light-color: #5fb882;
+    --page-background-color: var(--fl-panel);
+    --page-foreground-color: var(--fl-ink);
+    --page-secondary-foreground-color: var(--fl-muted);
+    --separator-color: var(--fl-rule);
+    --side-nav-background: #f7f9f8;
+    --tablehead-background: #f4f6f7;
+    --note-color: var(--fl-green-soft);
+    --note-color-dark: var(--fl-green);
+    --note-color-darker: var(--fl-green-dark);
+    --code-background: var(--fl-code-bg);
+    --fragment-background: var(--fl-code-bg);
+    --font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --font-family-monospace: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --fl-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+    --content-maxwidth: 1100px;
+    --border-radius-large: 4px;
+    --border-radius-medium: 4px;
+    --border-radius-small: 3px;
+}
+
+html.dark-mode {
+    --fl-ink: #e2e7eb;
+    --fl-muted: #9ba7b2;
+    --fl-panel: #15191c;
+    --fl-rule: #2c343b;
+    --fl-rule-strong: #55636f;
+    --fl-green: #5cc489;
+    --fl-green-dark: #8fdcae;
+    --fl-green-soft: #173426;
+    --fl-flow: #79b4d6;
+    --fl-flow-soft: #182f3d;
+    --fl-violet: #b9a6ea;
+    --fl-violet-soft: #2a2440;
+    --fl-amber: #e6b45a;
+    --fl-amber-soft: #33290f;
+    --fl-danger: #f17e72;
+    --fl-danger-soft: #3d1c19;
+    --fl-code-bg: #1e252a;
+
+    /* doxygen-awesome sets these again in html.dark-mode, with the same specificity */
+    --primary-color: var(--fl-green);
+    --primary-dark-color: var(--fl-green-dark);
+    --primary-light-color: #3d8f60;
+    --page-background-color: var(--fl-panel);
+    --page-foreground-color: var(--fl-ink);
+    --page-secondary-foreground-color: var(--fl-muted);
+    --separator-color: var(--fl-rule);
+    --side-nav-background: #191e22;
+    --tablehead-background: #1e252a;
+    --note-color: var(--fl-green-soft);
+    --note-color-dark: var(--fl-green);
+    --note-color-darker: var(--fl-green-dark);
+    --code-background: var(--fl-code-bg);
+    --fragment-background: var(--fl-code-bg);
+    color-scheme: dark;
+}
+
+/* title bar ------------------------------------------------------------- */
+#projectname {
+    font-family: var(--fl-display);
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: .01em;
+}
+#fl-controls-cell { width: 1%; padding-right: var(--spacing-medium); }
+.fl-controls { display: flex; align-items: center; gap: 12px; margin-left: 18px; white-space: nowrap; }
+.fl-lang {
+    display: inline-flex;
+    border: 1px solid var(--fl-rule);
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: var(--font-family-monospace);
+    font-size: 12px;
+}
+/* doxygen-awesome colours every link with !important: the language switch needs it too */
+#titlearea .fl-lang a {
+    padding: 3px 9px;
+    color: var(--fl-muted) !important;
+    text-decoration: none;
+}
+.fl-lang a + a { border-left: 1px solid var(--fl-rule); }
+#titlearea .fl-lang a.current { background: var(--fl-green); color: var(--fl-panel) !important; }
+#titlearea .fl-lang a:hover:not(.current) { color: var(--fl-ink) !important; background: var(--fl-code-bg); }
+.fl-theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid var(--fl-rule);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+.fl-theme:hover { background: var(--fl-code-bg); }
+.fl-theme svg { fill: none; stroke: var(--fl-ink); stroke-width: 1.8; stroke-linecap: round; }
+.fl-theme .fl-icon-moon { fill: var(--fl-ink); stroke: none; display: none; }
+html.dark-mode .fl-theme .fl-icon-sun { display: none; }
+html.dark-mode .fl-theme .fl-icon-moon { display: block; }
+.fl-lang a:focus-visible, .fl-theme:focus-visible { outline: 2px solid var(--fl-green); outline-offset: 2px; }
+
+/* outline of a page (right panel) and arrow of the footer path: doxygen 1.14 gives them
+   fixed light colours, which doxygen-awesome does not override */
+#page-nav { background: var(--side-nav-background); border-left-color: var(--separator-color); }
+#page-nav-resize-handle { background-color: var(--separator-color); }
+ul.page-outline li.vis { background-color: var(--fl-green-soft); }
+#nav-path li.navelem:after { width: auto; height: auto; background: none; box-shadow: none; border-radius: 0; }
+#nav-path li.navelem:hover, #nav-path li.navelem:hover:after { background-color: transparent; }
+
+/* typography ------------------------------------------------------------ */
+div.headertitle .title {
+    font-family: var(--fl-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.05;
+}
+div.contents h1, div.contents h2 {
+    font-family: var(--fl-display);
+    font-weight: 700;
+    text-wrap: balance;
+}
+div.contents h1 { font-size: 32px; margin-top: 44px; }
+div.contents h2 { font-size: 24px; margin-top: 34px; }
+div.contents h3 { font-family: var(--font-family-monospace); font-size: 15px; font-weight: 500; color: var(--fl-flow); }
+div.contents p, div.contents li { max-width: 80ch; }
+
+/* tables ---------------------------------------------------------------- */
+div.contents table.markdownTable th,
+div.contents table.doxtable th,
+div.contents table.api-table th {
+    font-family: var(--font-family-monospace);
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--fl-muted);
+}
+div.contents table.markdownTable td { vertical-align: top; }
+/* API page: one row per symbol, rows grouped by kind */
+/* doxygen-awesome makes every content table an inline-block: the API tables span the page instead */
+div.contents table.api-table { display: table !important; width: 100% !important; border-collapse: collapse; }
+div.contents table.api-table > tbody { display: table-row-group !important; }
+div.contents table.api-table th,
+div.contents table.api-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--fl-rule);
+}
+div.contents table.api-table th { background: var(--tablehead-background); }
+div.contents table.api-table td.api-name { width: 40%; font-family: var(--font-family-monospace); font-size: 13px; }
+div.contents table.api-table tr.api-group td {
+    padding-top: 14px;
+    font-family: var(--font-family-monospace);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--fl-muted);
+    border-bottom: 1px solid var(--fl-rule-strong);
+}
+
+/* tags: the outcome of a test */
+.pill {
+    display: inline-block;
+    font-family: var(--font-family-monospace);
+    font-size: 11px;
+    line-height: 1.7;
+    padding: 0 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+    background: var(--fl-code-bg);
+    color: var(--fl-muted);
+}
+.pill.ok  { background: var(--fl-green-soft);  color: var(--fl-green); }
+.pill.bad { background: var(--fl-danger-soft); color: var(--fl-danger); }
+
+/* callout */
+.fl-callout {
+    border-left: 3px solid var(--fl-green);
+    background: var(--fl-green-soft);
+    padding: 12px 16px;
+    margin: 18px 0;
+    max-width: 82ch;
+    border-radius: 0 4px 4px 0;
+}
+
+/* figures --------------------------------------------------------------- */
+html {
+    --fl-crash: #1d232a;
+    --fl-stop: #c3ccd4;
+}
+html.dark-mode {
+    --fl-crash: #05080a;
+    --fl-stop: #3b4650;
+}
+.fl-figure { margin: 22px 0 30px; }
+.fl-figbox {
+    background: var(--fl-panel);
+    border: 1px solid var(--fl-rule);
+    border-radius: 4px;
+    overflow-x: auto;
+    padding: 16px 12px 10px;
+}
+.fl-figbox svg { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) {
+    .fl-figbox svg { min-width: 760px; }
+}
+
+/* legend under a figure */
+.fl-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 12.5px; color: var(--fl-muted); }
+.fl-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.fl-legend .lg { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid transparent; }
+.fl-legend .lg.n-alive, .fl-legend .lg.n-act { background: var(--fl-green); }
+.fl-legend .lg.n-suspect { background: var(--fl-amber); }
+.fl-legend .lg.n-failed, .fl-legend .lg.n-conflict { background: var(--fl-danger); }
+.fl-legend .lg.n-crash { background: var(--fl-crash); border-color: var(--fl-rule-strong); }
+.fl-legend .lg.n-off { border: 1.5px dashed var(--fl-rule-strong); }
+.fl-legend .lg.n-self { border-color: var(--fl-ink); background: var(--fl-panel); }
+.fl-legend .lg.n-idle { border-color: var(--fl-ink); background: var(--fl-panel); }
+.fl-legend .lg.n-settle { border: 2.5px solid var(--fl-green); background: var(--fl-panel); }
+.fl-legend .lg.n-stop { background: var(--fl-stop); }
+.fl-legend .lg.lg-lost { width: 20px; height: 0; border-radius: 0; border-top: 1.5px dashed var(--fl-rule-strong); }
+.fl-legend .lg.lg-val { width: auto; height: auto; border-radius: 0; border: 0; font-style: normal; }
+.fl-legend .lg.lg-val::before { content: "3"; font-family: var(--font-family-monospace); font-weight: 600; color: var(--fl-ink); }
+
+/* snapshots of a network */
+.fl-figbox svg text { font-family: var(--font-family); fill: var(--fl-ink); }
+.fl-figbox svg .t-panel { font-family: var(--font-family-monospace); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; fill: var(--fl-ink); }
+.fl-figbox svg .t-rowtitle { font-family: var(--font-family-monospace); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; fill: var(--fl-muted); }
+.fl-figbox svg .t-note { font-size: 12px; fill: var(--fl-muted); }
+.fl-figbox svg .t-result { font-family: var(--font-family-monospace); font-size: 12px; font-weight: 600; fill: var(--fl-ink); }
+.fl-figbox svg .t-name { font-family: var(--font-family-monospace); font-size: 12px; font-weight: 500; fill: var(--fl-ink); }
+
+.fl-figbox svg .e-link { stroke: var(--fl-rule-strong); stroke-width: 1; }
+.fl-figbox svg .e-lost { stroke: var(--fl-rule-strong); stroke-width: 1; stroke-dasharray: 4 3; }
+.fl-figbox svg .e-cross { stroke: var(--fl-danger); stroke-width: 2; fill: none; }
+
+.fl-figbox svg .n { stroke-width: 1.5; }
+.fl-figbox svg .n.n-alive, .fl-figbox svg .n.n-act { fill: var(--fl-green); stroke: var(--fl-green); }
+.fl-figbox svg .n.n-suspect { fill: var(--fl-amber); stroke: var(--fl-amber); }
+.fl-figbox svg .n.n-failed, .fl-figbox svg .n.n-conflict { fill: var(--fl-danger); stroke: var(--fl-danger); }
+.fl-figbox svg .n.n-crash { fill: var(--fl-crash); stroke: var(--fl-rule-strong); }
+.fl-figbox svg .n.n-self { fill: var(--fl-panel); stroke: var(--fl-ink); stroke-width: 2; }
+.fl-figbox svg .n.n-idle { fill: var(--fl-panel); stroke: var(--fl-ink); stroke-width: 1.2; }
+.fl-figbox svg .n.n-settle { fill: var(--fl-panel); stroke: var(--fl-green); stroke-width: 3; }
+.fl-figbox svg .n.n-stop { fill: var(--fl-stop); stroke: var(--fl-stop); }
+.fl-figbox svg .t-val { font-family: var(--font-family-monospace); font-size: 12px; font-weight: 600; fill: var(--fl-ink); }
+.fl-figbox svg .t-val.n-act, .fl-figbox svg .t-val.n-alive, .fl-figbox svg .t-val.n-suspect,
+.fl-figbox svg .t-val.n-failed, .fl-figbox svg .t-val.n-conflict, .fl-figbox svg .t-val.n-crash { fill: #ffffff; }
+.fl-figbox svg .t-val.n-settle { fill: var(--fl-green); }
+
+.fl-figbox svg .a { stroke-width: 2.4; }
+.fl-figbox svg .a.m-ink { stroke: var(--fl-ink); }
+.fl-figbox svg .a.m-ok { stroke: var(--fl-green); }
+.fl-figbox svg .a.m-echo { stroke: var(--fl-green); stroke-opacity: .5; }
+.fl-figbox svg .a.m-warn { stroke: var(--fl-amber); }
+.fl-figbox svg .a.m-bad { stroke: var(--fl-danger); }
+.fl-figbox svg .ah { stroke: none; }
+.fl-figbox svg .ah.m-ink { fill: var(--fl-ink); }
+.fl-figbox svg .ah.m-ok { fill: var(--fl-green); }
+.fl-figbox svg .ah.m-echo { fill: var(--fl-green); fill-opacity: .5; }
+.fl-figbox svg .ah.m-warn { fill: var(--fl-amber); }
+.fl-figbox svg .ah.m-bad { fill: var(--fl-danger); }
+
+/* block diagram of the modules */
+.fl-figbox svg .b-app { fill: var(--fl-green-soft); stroke: var(--fl-green); stroke-width: 1.2; }
+.fl-figbox svg .b-step { fill: var(--fl-panel); stroke: var(--fl-rule-strong); stroke-width: 1; }
+.fl-figbox svg .b-group { fill: var(--fl-code-bg); stroke: none; }
+.fl-figbox svg .b-base { fill: var(--fl-flow-soft); stroke: var(--fl-flow); stroke-width: 1; }
+.fl-figbox svg .b-fcpp { fill: var(--fl-code-bg); stroke: var(--fl-rule-strong); stroke-width: 1; stroke-dasharray: 4 3; }
+.fl-figbox svg .t-box-title { font-family: var(--fl-display); font-size: 17px; font-weight: 700; }
+.fl-figbox svg .t-box-sub { font-size: 12px; fill: var(--fl-muted); }
+.fl-figbox svg .t-col { font-family: var(--font-family-monospace); font-size: 14px; font-weight: 600; }
+.fl-figbox svg .t-col-sub { font-size: 12px; fill: var(--fl-muted); }
+.fl-figbox svg .t-step { font-family: var(--font-family-monospace); font-size: 13px; font-weight: 500; }
+.fl-figbox svg .t-step-note { font-size: 12px; fill: var(--fl-muted); }
+.fl-figbox svg .t-flow { font-family: var(--font-family-monospace); font-size: 11.5px; fill: var(--fl-flow); }
+.fl-figbox svg .t-link { font-size: 12px; font-weight: 600; fill: var(--fl-green); }
+.fl-figbox svg .a-flow { stroke: var(--fl-flow); stroke-width: 1.4; }
+.fl-figbox svg .a-flow-h { fill: var(--fl-flow); }
+.fl-figbox svg .a-link { stroke: var(--fl-green); stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+.fl-figbox svg .a-link-h { fill: var(--fl-green); }

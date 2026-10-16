@@ -1,0 +1,133 @@
+<!-- HTML header for doxygen 1.10.0, adapted for fcpp-leases: doxygen-awesome-css, light/dark theme switch, Italian/English switch -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$langISO">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen $doxygenversion"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script type="text/javascript">
+(function() {
+    var theme = 'dark';
+    try { theme = localStorage.getItem('fcpp-leases-theme') || 'dark'; } catch (e) {}
+    document.documentElement.classList.add(theme === 'light' ? 'light-mode' : 'dark-mode');
+})();
+</script>
+<!--BEGIN PROJECT_NAME--><title>$projectname: $title</title><!--END PROJECT_NAME-->
+<!--BEGIN !PROJECT_NAME--><title>$title</title><!--END !PROJECT_NAME-->
+<!--BEGIN PROJECT_ICON-->
+<link rel="icon" href="$relpath^$projecticon" type="image/x-icon" />
+<!--END PROJECT_ICON-->
+<link href="$relpath^tabs.css" rel="stylesheet" type="text/css"/>
+<!--BEGIN DISABLE_INDEX-->
+  <!--BEGIN FULL_SIDEBAR-->
+<script type="text/javascript">var page_layout=1;</script>
+  <!--END FULL_SIDEBAR-->
+<!--END DISABLE_INDEX-->
+<script type="text/javascript" src="$relpath^jquery.js"></script>
+<script type="text/javascript" src="$relpath^dynsections.js"></script>
+<!--BEGIN COPY_CLIPBOARD-->
+<script type="text/javascript" src="$relpath^clipboard.js"></script>
+<!--END COPY_CLIPBOARD-->
+$treeview
+$search
+$mathjax
+$darkmode
+<link href="$relpath^$stylesheet" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+$extrastylesheet
+<script type="text/javascript" src="$relpath^doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.title = "Copia";
+    DoxygenAwesomeFragmentCopyButton.init();
+    DoxygenAwesomeParagraphLink.title = "Link a questa sezione";
+    DoxygenAwesomeParagraphLink.init();
+    DoxygenAwesomeInteractiveToc.init();
+</script>
+</head>
+<body>
+<!--BEGIN DISABLE_INDEX-->
+  <!--BEGIN FULL_SIDEBAR-->
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+  <!--END FULL_SIDEBAR-->
+<!--END DISABLE_INDEX-->
+
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+
+<!--BEGIN TITLEAREA-->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <!--BEGIN PROJECT_LOGO-->
+  <td id="projectlogo"><img alt="Logo" src="$relpath^$projectlogo"$logosize/></td>
+  <!--END PROJECT_LOGO-->
+  <!--BEGIN PROJECT_NAME-->
+  <td id="projectalign">
+   <div id="projectname">$projectname<!--BEGIN PROJECT_NUMBER--><span id="projectnumber">&#160;$projectnumber</span><!--END PROJECT_NUMBER-->
+   </div>
+   <!--BEGIN PROJECT_BRIEF--><div id="projectbrief">$projectbrief</div><!--END PROJECT_BRIEF-->
+  </td>
+  <!--END PROJECT_NAME-->
+    <td id="fl-controls-cell">
+     <div class="fl-controls">
+      <span class="fl-lang"><a id="fl-lang-it" href="#">IT</a><a id="fl-lang-en" href="#">EN</a></span>
+      <button id="fl-theme" type="button" class="fl-theme"><svg class="fl-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg><svg class="fl-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></button>
+     </div>
+     <script type="text/javascript">
+     (function() {
+         // the two languages are built side by side: .../html/it/<page> and .../html/en/<page>
+         var url = location.href;
+         var at = Math.max(url.lastIndexOf('/it/'), url.lastIndexOf('/en/'));
+         var lang = at >= 0 ? url.substr(at + 1, 2) : 'it';
+         ['it', 'en'].forEach(function(l) {
+             var a = document.getElementById('fl-lang-' + l);
+             a.href = at >= 0 ? url.substr(0, at + 1) + l + url.substr(at + 3) : url;
+             if (l === lang) a.className = 'current';
+             a.addEventListener('click', function() {
+                 try { localStorage.setItem('fcpp-leases-lang', l); } catch (e) {}
+             });
+         });
+         var button = document.getElementById('fl-theme');
+         var label = lang === 'it' ? 'Tema chiaro o scuro' : 'Light or dark theme';
+         button.title = label;
+         button.setAttribute('aria-label', label);
+         button.addEventListener('click', function() {
+             var root = document.documentElement;
+             var dark = !root.classList.contains('dark-mode');
+             root.classList.toggle('dark-mode', dark);
+             root.classList.toggle('light-mode', !dark);
+             try { localStorage.setItem('fcpp-leases-theme', dark ? 'dark' : 'light'); } catch (e) {}
+         });
+     })();
+     </script>
+    </td>
+  <!--BEGIN !PROJECT_NAME-->
+   <!--BEGIN PROJECT_BRIEF-->
+    <td>
+    <div id="projectbrief">$projectbrief</div>
+    </td>
+   <!--END PROJECT_BRIEF-->
+  <!--END !PROJECT_NAME-->
+  <!--BEGIN DISABLE_INDEX-->
+   <!--BEGIN SEARCHENGINE-->
+     <!--BEGIN !FULL_SIDEBAR-->
+    <td>$searchbox</td>
+     <!--END !FULL_SIDEBAR-->
+   <!--END SEARCHENGINE-->
+  <!--END DISABLE_INDEX-->
+ </tr>
+  <!--BEGIN SEARCHENGINE-->
+   <!--BEGIN FULL_SIDEBAR-->
+   <tr><td colspan="2">$searchbox</td></tr>
+   <!--END FULL_SIDEBAR-->
+  <!--END SEARCHENGINE-->
+ </tbody>
+</table>
+</div>
+<!--END TITLEAREA-->
+<!-- end header part -->

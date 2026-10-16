@@ -1,0 +1,11 @@
+# Doxyfile for fcpp-leases, English documentation: same as Doxyfile, other language and pages.
+
+@INCLUDE               = Doxyfile
+
+OUTPUT_LANGUAGE        = English
+INPUT                  = pages/en ../lib
+USE_MDFILE_AS_MAINPAGE = pages/en/mainpage.md
+IMAGE_PATH             = pages/en
+EXAMPLE_PATH           = pages/en/figures
+HTML_OUTPUT            = html/en
+WARN_LOGFILE           = doxygen-warnings-en.log
